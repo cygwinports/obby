@@ -1,0 +1,17 @@
+--- origsrc/obby-0.4.8/src/Makefile.am	2011-10-30 10:52:53.000000000 -0500
++++ src/obby-0.4.8/src/Makefile.am	2015-06-01 20:07:10.600474900 -0500
+@@ -8,12 +8,12 @@ lib_LTLIBRARIES = libobby.la
+ #     ^     :     ^    :       ^
+ #     |     :   minor  :       |
+ # interface :  changes : compatibility
+-libobby_la_LDFLAGS = -version-info 1:0:0 -release 0.4
++libobby_la_LDFLAGS = -version-info 1:0:0 -release 0.4 -no-undefined
+ 
+ libobby_la_LIBADD = serialise/libserialise.la $(libobby_LIBS) @extra_libraries@
+ 
+ if WIN32
+-libobby_la_LDFLAGS += -no-undefined -Wl,--enable-runtime-pseudo-reloc
++libobby_la_LDFLAGS += -Wl,--enable-runtime-pseudo-reloc
+ endif
+ 
+ libobby_la_CPPFLAGS = $(libobby_CFLAGS) @extra_includes@

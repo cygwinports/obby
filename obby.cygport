@@ -1,0 +1,19 @@
+NAME="obby"
+VERSION=0.4.8
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Synced document buffer library"
+DESCRIPTION="libobby is a library which provides synced document buffers."
+HOMEPAGE="https://github.com/gobby/obby"
+SRC_URI="http://releases.0x539.de/obby/obby-${VERSION}.tar.gz"
+PATCH_URI="0.4.8-no-undefined.patch"
+
+PKG_NAMES="libobby0.4_1 libobby-common libobby-devel"
+libobby0_4_1_REQUIRES="libobby-common"
+libobby0_4_1_CONTENTS="usr/bin/cygobby-0-4-1.dll"
+libobby_common_CONTENTS="usr/share/doc/ usr/share/locale/"
+libobby_devel_CONTENTS="usr/include/ usr/lib/libobby.dll.a usr/lib/pkgconfig/obby-0.4.pc"
+
+DIFF_EXCLUDES="config.hpp.in"
+
+CYGCONF_ARGS="--enable-ipv6 --with-zeroconf"
